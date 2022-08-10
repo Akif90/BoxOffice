@@ -1,15 +1,18 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Nav from './components/Nav';
+import Home from './pages/Home';
 
 function App() {
   return (
     <Switch>
       <Route exact path="/">
-        this is home page
+        <Home />
       </Route>
       {/* we are using exact so that react routes exactlty acc to the path specified */}
       {/* we could use exact={true} or just exact in react  */}
-      <Route exact path="/now">
+      <Route exact path="/index">
+        <Nav />
         OH you are here now
       </Route>
       {/* The last route works only when the all the other fails to work
