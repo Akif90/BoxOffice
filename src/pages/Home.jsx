@@ -1,14 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import MainPageLayout from '../components/MainPageLayout';
+// import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div>
-      This is Home
-      <Link exact to="/index">
-        Go to Index Page
-      </Link>
-    </div>
+    <MainPageLayout>
+      <div>This is Home</div>{' '}
+    </MainPageLayout>
   );
 };
 
