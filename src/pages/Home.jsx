@@ -6,6 +6,9 @@ import { apiCAll } from '../misc/config';
 const Home = () => {
   const [input, setInput] = useState('');
   const [results, setResults] = useState(null);
+  const [query, setQuery] = useState('people?q');
+
+  const isShowsSearch = query === 'shows?q';
   // console.log(input);
   const onInputChange = ev => {
     setInput(ev.target.value);
@@ -13,7 +16,7 @@ const Home = () => {
   };
   const onSearch = () => {
     // console.log(ev);
-    apiCAll(`shows?q=${input}`).then(response => {
+    apiCAll(`${query}=${input}`).then(response => {
       const res = response;
       setResults(res);
       // console.log(res);
@@ -27,27 +30,61 @@ const Home = () => {
       return <div>Not Found</div>;
     }
     if (results && results.length > 0) {
-      return (
+      return results[0].show ? (
         <ul>
           {results.map(movie => {
             return <li key={movie.show.id}>{movie.show.name}</li>;
+          })}
+        </ul>
+      ) : (
+        <ul>
+          {results.map(movie => {
+            return <li key={movie.person.id}>{movie.person.name}</li>;
           })}
         </ul>
       );
     }
     return null;
   };
+  const onRadioClicked = e => {
+    console.log(e.target.value);
+    if (e.target.id === 'actors') setQuery('people?q');
+    else setQuery('shows?q');
+  };
   return (
     <MainPageLayout>
       <input
         type="text"
         value={input}
+        placeholder="Search for something"
         onKeyDown={onKeyDown}
         onChange={onInputChange}
       />
       <button type="button" onClick={onSearch}>
         Search
       </button>
+      <div>
+        <label htmlFor="actors">
+          Actors
+          <input
+            id="actors"
+            type="radio"
+            onChange={onRadioClicked}
+            checked={!isShowsSearch}
+            value="people"
+          />
+        </label>
+        <label htmlFor="shows">
+          Shows
+          <input
+            id="shows"
+            checked={isShowsSearch}
+            value="shows"
+            type="radio"
+            onChange={onRadioClicked}
+          />
+        </label>
+      </div>
       {renderResults()}
     </MainPageLayout>
   );
