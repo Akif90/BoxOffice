@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import ActorGrid from '../components/actors/ActorGrid';
 import MainPageLayout from '../components/MainPageLayout';
+import ShowGrid from '../components/shows/ShowGrid';
 // import { Link } from 'react-router-dom';
 import { apiCAll } from '../misc/config';
 
@@ -31,17 +33,9 @@ const Home = () => {
     }
     if (results && results.length > 0) {
       return results[0].show ? (
-        <ul>
-          {results.map(movie => {
-            return <li key={movie.show.id}>{movie.show.name}</li>;
-          })}
-        </ul>
+        <ShowGrid data={results} />
       ) : (
-        <ul>
-          {results.map(movie => {
-            return <li key={movie.person.id}>{movie.person.name}</li>;
-          })}
-        </ul>
+        <ActorGrid data={results} />
       );
     }
     return null;
