@@ -8,10 +8,10 @@ import { apiCAll } from '../misc/config';
 const Home = () => {
   const [input, setInput] = useState('');
   const [results, setResults] = useState(null);
-  const [query, setQuery] = useState('people?q');
+  const [query, setQuery] = useState('search/people?q');
 
-  const isShowsSearch = query === 'shows?q';
-  // console.log(input);
+  const isShowsSearch = query === 'search/shows?q';
+
   const onInputChange = ev => {
     setInput(ev.target.value);
     // console.log(ev.target.value);
@@ -41,9 +41,8 @@ const Home = () => {
     return null;
   };
   const onRadioClicked = e => {
-    console.log(e.target.value);
-    if (e.target.id === 'actors') setQuery('people?q');
-    else setQuery('shows?q');
+    if (e.target.id === 'actors') setQuery('search/people?q');
+    else setQuery('search/shows?q');
   };
   return (
     <MainPageLayout>

@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 // import Nav from './components/Nav';
 import Home from './pages/Home';
 import Content from './pages/Content';
+import Show from './pages/Show';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       {/* we could use exact={true} or just exact in react  */}
       <Route exact path="/content">
         <Content />
+      </Route>
+      <Route exact path="/show/:id">
+        <Show />
       </Route>
       {/* The last route works only when the all the other fails to work
       so it is basically used for rendering error message page like 404 not found */}
