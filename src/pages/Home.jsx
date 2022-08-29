@@ -4,9 +4,10 @@ import MainPageLayout from '../components/MainPageLayout';
 import ShowGrid from '../components/shows/ShowGrid';
 // import { Link } from 'react-router-dom';
 import { apiCAll } from '../misc/config';
+import { useLastQuery } from '../misc/custom-hooks';
 
 const Home = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useLastQuery();
   const [results, setResults] = useState(null);
   const [query, setQuery] = useState('search/people?q');
 
