@@ -17,6 +17,7 @@ const Home = () => {
     setInput(ev.target.value);
     // console.log(ev.target.value);
   };
+
   const onSearch = () => {
     // console.log(ev);
     apiCAll(`${query}=${input}`).then(response => {
@@ -25,9 +26,11 @@ const Home = () => {
       // console.log(res);
     });
   };
+
   const onKeyDown = e => {
     if (e.keyCode === 13) onSearch();
   };
+
   const renderResults = () => {
     if (results && results.length === 0) {
       return <div>Not Found</div>;
@@ -41,10 +44,12 @@ const Home = () => {
     }
     return null;
   };
+
   const onRadioClicked = e => {
     if (e.target.id === 'actors') setQuery('search/people?q');
     else setQuery('search/shows?q');
   };
+
   return (
     <MainPageLayout>
       <input
