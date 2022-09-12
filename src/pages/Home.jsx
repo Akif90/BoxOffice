@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import ActorGrid from '../components/actors/ActorGrid';
+import CustomRadio from '../components/CustomRadio';
+import {
+  RadioInputsWrapper,
+  SearchButtonWrapper,
+  SearchInput,
+} from '../components/Home.styled';
 import MainPageLayout from '../components/MainPageLayout';
 import ShowGrid from '../components/shows/ShowGrid';
 // import { Link } from 'react-router-dom';
@@ -52,38 +58,42 @@ const Home = () => {
 
   return (
     <MainPageLayout>
-      <input
+      <SearchInput
         type="text"
         value={input}
         placeholder="Search for something"
         onKeyDown={onKeyDown}
         onChange={onInputChange}
       />
-      <button type="button" onClick={onSearch}>
-        Search
-      </button>
-      <div>
-        <label htmlFor="actors">
-          Actors
-          <input
+
+      <RadioInputsWrapper>
+        <div>
+          <CustomRadio
+            label="actors"
             id="actors"
-            type="radio"
             onChange={onRadioClicked}
             checked={!isShowsSearch}
             value="people"
           />
-        </label>
-        <label htmlFor="shows">
-          Shows
-          <input
+        </div>
+
+        <div>
+          <CustomRadio
+            label="shows"
             id="shows"
+            onChange={onRadioClicked}
             checked={isShowsSearch}
             value="shows"
-            type="radio"
-            onChange={onRadioClicked}
           />
-        </label>
-      </div>
+        </div>
+      </RadioInputsWrapper>
+
+      <SearchButtonWrapper>
+        <button type="button" onClick={onSearch}>
+          Search
+        </button>
+      </SearchButtonWrapper>
+
       {renderResults()}
     </MainPageLayout>
   );
