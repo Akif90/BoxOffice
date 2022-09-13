@@ -1,15 +1,14 @@
 {
   "files": {
     "main.css": "/BoxOffice/static/css/main.b2586571.css",
-    "main.js": "/BoxOffice/static/js/main.e77ee203.js",
-    "static/js/787.6e354c4d.chunk.js": "/BoxOffice/static/js/787.6e354c4d.chunk.js",
+    "main.js": "/BoxOffice/static/js/main.2a84ddfb.js",
+    "service-worker.js": "/BoxOffice/service-worker.js",
     "index.html": "/BoxOffice/index.html",
     "main.b2586571.css.map": "/BoxOffice/static/css/main.b2586571.css.map",
-    "main.e77ee203.js.map": "/BoxOffice/static/js/main.e77ee203.js.map",
-    "787.6e354c4d.chunk.js.map": "/BoxOffice/static/js/787.6e354c4d.chunk.js.map"
+    "main.2a84ddfb.js.map": "/BoxOffice/static/js/main.2a84ddfb.js.map"
   },
   "entrypoints": [
     "static/css/main.b2586571.css",
-    "static/js/main.e77ee203.js"
+    "static/js/main.2a84ddfb.js"
   ]
 }
